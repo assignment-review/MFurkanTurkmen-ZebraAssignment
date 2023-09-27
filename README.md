@@ -1,9 +1,24 @@
 
 ---
+### veritabani(PostgreSQL) ayarlamalarimizi yapmak icin resources-> application.yml dosyasinin icinde
+
+- baska bir veritabani kullanilacak ise: asagida belirtmeliyiz.
+  -     driver-class-name: org.postgresql.Driver
+  -     MySql icin:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+
 - **ZebraAssignment** adinda bir veritabanı olusturulmali veya kullanacagimiz 
 veritabanimizi application.yml icerisinde belirtmeliyiz.
+  -     url: jdbc:postgresql://localhost:5432/ZebraAssignment
+  -     MySql icin:
+        url: jdbc:mysql://localhost:3306/ZebraAssignment
 - yine yaml dosyası icerisinde postgresql icin: **username ve password** kisimlarimizi
 ayarlamamiz gerekiyor.
+  -     username: postgres -> kendi veritabaniniz icin kullanici adiniz.
+        password: asd123asd -> veritabani sifreniz.
+
+
 ---
 ### Deneme islemleri kolay olmasi icin regex eklenmedi.
 ### yukarida adimlar tamamlandi ise
