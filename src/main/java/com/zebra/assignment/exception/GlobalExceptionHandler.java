@@ -1,4 +1,4 @@
-package com.myjobsposting.myjobsposting.exception;
+package com.zebra.assignment.exception;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.myjobsposting.myjobsposting.exception.ErrorType.BAD_REQUEST_ERROR;
+import static com.zebra.assignment.exception.ErrorType.*;
 
 
 @ControllerAdvice
@@ -29,9 +29,9 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(createErrorMessage(ex,ErrorType.INTERNAL_SERVER_ERROR), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(MyJobsPostingException.class)
+    @ExceptionHandler(ZebraException.class)
     @ResponseBody
-    public ResponseEntity<ErrorMessage> Java8StartExceptionHandler(MyJobsPostingException ex){
+    public ResponseEntity<ErrorMessage> Java8StartExceptionHandler(ZebraException ex){
         return new ResponseEntity<>(createErrorMessage(ex,ex.getErrorType()),ex.getErrorType().getHttpStatus());
     }
 

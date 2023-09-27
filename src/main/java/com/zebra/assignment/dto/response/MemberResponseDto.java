@@ -1,6 +1,5 @@
 package com.zebra.assignment.dto.response;
 
-import jakarta.persistence.Column;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

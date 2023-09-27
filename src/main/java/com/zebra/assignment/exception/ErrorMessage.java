@@ -1,4 +1,4 @@
-package com.myjobsposting.myjobsposting.exception;
+package com.zebra.assignment.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

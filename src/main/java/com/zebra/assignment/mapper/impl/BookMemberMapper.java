@@ -6,7 +6,7 @@ import com.zebra.assignment.repository.entity.Book_Member;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BookBarrowerMapper implements IBookMemberMapper {
+public class BookMemberMapper implements IBookMemberMapper {
 
     @Override
     public BookMemberResponseDto toDto(Book_Member bookBarrower) {

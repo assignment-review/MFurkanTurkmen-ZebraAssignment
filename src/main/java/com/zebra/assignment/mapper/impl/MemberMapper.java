@@ -3,7 +3,6 @@ package com.zebra.assignment.mapper.impl;
 import com.zebra.assignment.dto.request.MemberSaveRequestDto;
 import com.zebra.assignment.dto.response.MemberResponseDto;
 import com.zebra.assignment.mapper.IMemberMapper;
-import com.zebra.assignment.repository.entity.Book;
 import com.zebra.assignment.repository.entity.Member;
 import org.springframework.stereotype.Component;
 

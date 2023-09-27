@@ -1,4 +1,4 @@
-package com.zebra.assignment.entity;
+package com.zebra.assignment.repository.entity;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

@@ -21,27 +21,33 @@ public class BookMemberService extends ServiceManager<Book_Member,Long> {
         this.repository = repository;
         this.bookMemberMapper = bookMemberMapper;
     }
-    public void saveBookMember(Long borrowerId, Long bookId){
-        if (borrowerId==null || bookId==null) throw new ZebraException(ErrorType.INTERNAL_SERVER_ERROR,"BookMemberService: save methot");
-        Optional<Book_Member> bookMember= repository.findOptionalByBookIdAndMemberId(bookId,borrowerId);
+    public void saveBookMember(Long memberId, Long bookId){
+        if (memberId==null || bookId==null) throw new ZebraException(ErrorType.INTERNAL_SERVER_ERROR,"BookMemberService: save methot");
+        Optional<Book_Member> bookMember= repository.findOptionalByBookIdAndMemberId(bookId,memberId);
         if (bookMember.isEmpty()){
              Book_Member newBookMember= save(Book_Member.builder()
                     .bookId(bookId)
-                    .borrowerId(borrowerId)
+                    .memberId(memberId)
                     .build());
         }else throw new RuntimeException("kullanici bu kitabi daha önce almis");
 
     }
 
 
-    public void deleteBookMember(Long borrowerId,Long bookId){
-        Book_Member bookMember= repository.findOptionalByBookIdAndMemberId(bookId,borrowerId)
+    public void deleteBookMember(Long memberId,Long bookId){
+        Book_Member bookMember= repository.findOptionalByBookIdAndMemberId(bookId,memberId)
                 .orElseThrow(()->{throw new ZebraException(ErrorType.DEBT_NOT_FOUND);});
         delete(bookMember);
     }
 
     public List<Book_Member> getAllMember(){
         return findAll();
+    }
+    public List<Book_Member> findByMemberId(Long id){
+        return repository.findByMemberId(id);
+    }
+    public boolean existsByBookId(Long id){
+        return repository.existsByBookId(id);
     }
     
     

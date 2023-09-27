@@ -1,12 +1,13 @@
 package com.zebra.assignment.dto.response;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookSaveResponseDto {
+public class BookResponseDto extends BaseResponseDto {
     private String title;
     private String author;
     private String isbn;
